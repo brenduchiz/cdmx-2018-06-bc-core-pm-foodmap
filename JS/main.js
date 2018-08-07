@@ -23,7 +23,7 @@ initMap(latitude,longitude)
 function initMap(lati,longi) {
   
   console.log(longi)
-    var pyrmont = new google.maps.LatLng(lati,longi);
+  var pyrmont = new google.maps.LatLng(lati,longi);
 
   map = new google.maps.Map(document.getElementById('map'), {
     center: pyrmont,
@@ -34,7 +34,7 @@ function initMap(lati,longi) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: pyrmont,
-    radius: 1000,
+    radius: 500,
     type: ['restaurant']
   }, callback);
  
@@ -73,17 +73,10 @@ function callback(results, status) {
   }*/
 function createMarker(place) {
   var placeLoc = place.geometry.location;
-  var photos = place.photos;
-  if (!photos) {
-    return;
-  }
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location,
-    title: place.name,
-    icon: photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35})
-   
-
+    position: place.geometry.location
+    
   });
    google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);

@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+body {
+    margin: 0;
+    padding: 0;
+  background-color: #B5ED34;
+  }
+
+  .animation{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+   margin-top: 250px;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+
+animation-name: hamburger;
+animation-duration: .8s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+
+
+@keyframes hamburger{
+   from{
+transform: scale(1);
+    }
+    to{
+transform: scale(1.1);
+    }
+}
+
+.titule{
+    color: azure;
+ }
+ 
