@@ -11,16 +11,14 @@
 <body>
 
         <nav class="navbar navbar-expand-lg navbar-light ">
-               <img src="../IMAGES/ham.png" height="40" width="40" alt=""> <a class="navbar-brand" id="navbartxt" href="#">YUMMY</a>
+               <img src="../IMAGES/ham.png" height="40" width="40" alt=""> <a class="navbartxt" id="" href="#">YUMMY</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
               
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
+                    
                     
                     
                     
@@ -42,7 +40,13 @@
                     </div>
                     
         
-
+                    <div class="card">
+                      <div class="card-body">
+                        <button type="button" class="btn btn-success" id="BuRestaurant">Restaurantes</button>
+                        <button type="button" class="btn btn-success" id="BuCoffe">Cafe</button>
+                        <button type="button" class="btn btn-success" id="BuBar">Bar</button>
+                      </div>
+                    </div>
 <div id="Restaurants"></div>
 
           
@@ -68,6 +72,7 @@
 <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script> 
     
 <script src="../JS/main.js"></script>
+<script src="../JS/app.js"></script>
 
 </body>
 </html>

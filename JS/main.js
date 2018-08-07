@@ -37,6 +37,24 @@ function initMap(lati,longi) {
     radius: 500,
     type: ['restaurant']
   }, callback);
+
+
+  service.nearbySearch({
+    location: pyrmont,
+    radius: 500,
+    type: ['cafe']
+  }, callbackk);
+ 
+
+  service.nearbySearch({
+    location: pyrmont,
+    radius: 500,
+    type: ['bar']
+  }, callbackk1);
+ 
+ 
+
+
  
 }
 
@@ -51,6 +69,35 @@ function callback(results, status) {
 
   
 }
+
+function callbackk(results, status) {
+  
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+    
+    }
+  }
+
+  
+}
+
+
+function callbackk1(results, status) {
+  
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i]);
+      console.log(results)
+    }
+  }
+
+  
+}
+
+
+
+
 
 /*function createMarker(place) {
     var placeLoc = place.geometry.location;
@@ -88,20 +135,30 @@ function createMarker(place) {
 }
 
 PrintRestaurant = (result) => {
-let photos = result.photos;
 
-//let viwephotos = photos[0].getUrl({'maxWidth': 35, 'maxHeight': 35});
+
+
 
 
 resultado+= `
 
 
-<!-- Button trigger modal -->
-<p>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-${result.name} 
-</button>
-</p>
+
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">${result.name}</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Mas info
+    </button>
+  </div>
+</div>
+
+
+
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
