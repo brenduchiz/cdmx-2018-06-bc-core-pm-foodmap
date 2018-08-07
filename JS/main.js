@@ -116,12 +116,24 @@ function createMarker(place) {
 
 PrintRestaurant = (result) => {
 
-
+  let photoRestaurant;
+  if (result.photos) {
+    photoRestaurant = result.photos[0].getUrl({'maxWidith': 400,
+      'maxHeight': 200});
+  } else {
+    photoRestaurant = '../IMAGES/nofoto.jpg';
+  }
  
-  let photo = result.photos[0].getUrl({'maxWidith': 400,
-  'maxHeight': 200});
 
-  console.log(photo);
+
+
+
+
+
+
+
+
+  
 
 resultado+= `
 <div class="card">
@@ -130,8 +142,8 @@ resultado+= `
   </div>
   <div class="card-body">
     <h5 class="card-title">${result.name}</h5>
-    <p class="card-text">   </p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${result.id}">
+    <p class="card-text"><img src="${photoRestaurant}" class="img-fluid img-thumbnail" alt="Responsive image"> </p>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#${result.id}">
   Mas info
     </button>
   </div>
@@ -142,17 +154,21 @@ resultado+= `
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle"> ${result.name}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close" data-dismiss="modal" aria-label="CERRAR">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
+
+      
+
+      
       ${result.vicinity}
      
       
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Cerrar</button>
         
       </div>
     </div>
