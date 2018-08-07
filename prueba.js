@@ -1,4 +1,3 @@
-
 let resultado ="";
 let datosRestaurants ="";
 var map;
@@ -88,7 +87,7 @@ function callbackk1(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
-     
+      console.log(results)
     }
   }
 
@@ -104,7 +103,7 @@ function createMarker(place) {
     
   });
 
-
+  
    google.maps.event.addListener(marker, 'click', function() {
     infowindow.setContent(place.name);
   
@@ -117,27 +116,24 @@ function createMarker(place) {
 PrintRestaurant = (result) => {
 
 
- 
-  let photo = result.photos[0].getUrl({'maxWidith': 400,
-  'maxHeight': 200});
 
-  console.log(photo);
+
 
 resultado+= `
 <div class="card">
   <div class="card-header">
-   
+    Featured
   </div>
   <div class="card-body">
     <h5 class="card-title">${result.name}</h5>
-    <p class="card-text">   </p>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#${result.id}">
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
   Mas info
     </button>
   </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="${result.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -163,7 +159,3 @@ resultado+= `
 Restaurants.innerHTML = resultado;
 
 }
-
-
-
-
